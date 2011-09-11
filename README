@@ -1,0 +1,10 @@
+Very Alpha.
+
+Use a bit of JS to make distraction free writing even more awesome.
+
+Commands supported:
+:w - save
+:q - exit distraction free writing
+i - enter input mode
+
+Press esc while in HTML edit mode to enter Visual Mode.  A black input box will now have focus and be usable for entering commands.  Press enter to trigger a command.
