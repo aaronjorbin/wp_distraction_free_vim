@@ -6,17 +6,19 @@ Description: This is not just a plugin, it symbolizes the hope and enthusiasm of
 Version: 0.1
 Author URI: http://aaron.jorb.in
 */
-class Jorbin_Dfv{
+
+class Jorbin_DFV{
 
     function __construct()
     {
-        add_action( 'load-post-new.php', array( $this , 'add_script' ) );
-        add_action( 'load-post.php', array( $this , 'add_script' ) );
+        add_action( 'admin_enqueue_scripts', array( $this , 'add_script' ) );
     }
 
-    function add_script()
+    function add_script($hook)
     {
-        wp_enqueue_script( 'distractionFreeVim', plugins_url('/dfv.js', __FILE__), array( 'wp-fullscreen' , ));
+        if ('post.php' !== $hook && 'post-new.php' !== $hook)
+            return;
+        wp_enqueue_script( 'distractionFreeVim', plugins_url('dfv.js', __FILE__), array( 'wp-fullscreen' , ));
     }
 
 }
